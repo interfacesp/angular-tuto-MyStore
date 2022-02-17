@@ -1,24 +1,26 @@
 import { Component } from '@angular/core';
-
-import { products } from '../products';
+import { products, Product } from '../products';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent {
   products = products;
+
+  
 
   share() {
     window.alert('The product has been shared!');
   }
 
-  onNotifyCall(){
-    window.alert("Will be notified for a sale");
+  onNotifyCall() {
+    window.alert('Will be notified for a sale');
   }
-}
 
+ 
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.
