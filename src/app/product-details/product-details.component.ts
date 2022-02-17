@@ -9,8 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  aProduct : Product | undefined;
-  constructor() {}
+  product: Product | undefined;
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+      const extractedProdId = this.extractProductIdFromRoute(this.route);
+      this.product = products.find(aProd => aProd.id ===  extractedProdId);
+
+  }
+
+  private extractProductIdFromRoute(route: ActivatedRoute) {
+    const routeParams = route.snapshot.paramMap;
+    return Number(routeParams.get('productId'));
+  }
 }
